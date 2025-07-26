@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Advertising Campaign Report id</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body contenteditable="true">
+    <div class="page_wrapper">
+      <header class="header">
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+        <h1>
+          Advertising Campaign Report<br />
+          <span class="client_name" data-if="client_name"
+            >for {{client_name}}</span
+          >
+        </h1>
+
+        <div class="date">{{date_range}}</div>
+      </header>
+
+      <main>
+        <div class="section">
+          <p>
+            The report captures key metrics and helps you understand which
+            traffic sources perform best.
+          </p>
+        </div>
+
+        <header>
+          <h2>Basic Metrics</h2>
+        </header>
+        <div class="section">
+          <p>
+            During the reporting period, ads were shown
+            <span class="placeholder">{{impressions}}</span> times. The number
+            of clicks on ad creatives was
+            <span class="placeholder">{{clicks}}</span>. The overall CTR
+            including search partners was
+            <span class="placeholder">{{ctr_overall}}</span>, and CTR for search
+            was <span class="placeholder">{{ctr_search}}</span>.
+          </p>
+
+          <p data-if="multi_site_leads_count">
+            Number of leads from multisites —
+            <span class="placeholder">{{multi_site_leads_count}}</span>.
+          </p>
+
+          <p data-if="conversion_breakdown">
+            Conversions by Yandex.Metrica goals:
+            <span class="placeholder">{{conversion_breakdown}}</span>.
+          </p>
+
+          <div class="image-wrapper">[[CHART_BASIC]]</div>
+          <p>
+            Click metrics are at
+            <span class="placeholder">{{click_rate_percentage}}</span> of the
+            planned level. The campaign is running at full capacity. In your
+            niche, you have the opportunity to reach a larger audience by
+            expanding the keyword list and connecting partner sites. To do this,
+            you need to increase the ad budget.
+          </p>
+          <p class="accent-box">
+            <span class="placeholder">{{basic_metrics_analysis}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Traffic Quality</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <div class="section">
+          <p>
+            User behavior on the site shows how well the offer meets
+            expectations: if someone leaves quickly—it’s either the ad or the
+            site. It’s important to evaluate where customers are being lost. To
+            improve metrics, all website recommendations in this report must be
+            implemented:
+          </p>
+
+          <div class="metriks_wrapper">
+            <div class="metriks_block">
+              Bounce Rate: <span class="placeholder">{{bounce_rate}}</span>
+            </div>
+
+            <div class="metriks_block">
+              Time on Site: <span class="placeholder">{{time_on_site}}</span>
+            </div>
+
+            <div class="metriks_block">
+              Page Depth: <span class="placeholder">{{page_depth}}</span>
+            </div>
+          </div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{traffic_quality_analysis}}</span>
+          </p>
+
+          <div data-if="new_user_share">
+            <p data-if="analysis_new_vs_returning_users">
+              <strong>Returning Users:</strong><br />
+            </p>
+            <div class="image-wrapper">[[CHART_RETURNING_USERS]]</div>
+            <p>
+              New users — <span class="placeholder">{{new_user_share}}</span>,
+              returning —
+              <span class="placeholder">{{returning_user_share}}</span>.<br />
+              <span class="placeholder"
+                >{{analysis_new_vs_returning_users}}</span
+              >
+            </p>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="geography_clicks">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Geography of Clicks</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <div class="section">
+          <p>
+            Visitors come from target regions. Exceptions may be users who came
+            via extended geo-targeting (specifying a target region in the query
+            text, using VPN).
+          </p>
+          <p><span class="placeholder">{{geography_clicks}}</span></p>
+          <div class="image-wrapper">[[CHART_GEO]]</div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{geography_recommendations}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="audience_data">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Target Audience</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <p>
+          We use audience profiling to precisely target ads, adjust bids, and
+          choose optimal promotion channels.
+        </p>
+        <p>
+          Understanding user behavior and interests allows us to create relevant
+          offers and increase conversion.
+        </p>
+        <p>
+          Based on audience data, personalized campaigns and special offers can
+          be developed, as well as testing new creatives.
+        </p>
+        <div class="section">
+          <p>
+            <span class="placeholder">{{audience_data}}</span>
+          </p>
+          <div class="image-wrapper">[[CHART_AUDIENCE]]</div>
+
+          <div>
+            <p class="accent-box" data-if="audience_analysis">
+              <span class="placeholder">{{audience_analysis}}</span>
+            </p>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Devices</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <div class="section">
+          <p>
+            This section shows audience distribution by device type: mobile
+            phones, tablets, and computers. These data help understand where
+            users most often access and how convenient it is for them to
+            interact with the site.
+          </p>
+          <p>
+            Based on this information, we assess how effectively the site works
+            on different devices and where there’s potential for improving user
+            experience.
+          </p>
+          <p><span class="placeholder">{{device_data}}</span></p>
+          <div class="image-wrapper">[[CHART_DEVICE]]</div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{device_analysis}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="keyword_summary">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Popular Keywords</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <p>
+          This section reflects which keyword phrases users used to reach the
+          site from search results or ads. Keywords are the foundation of the
+          campaign, as they are how potential clients find you.
+        </p>
+        <p>
+          Analyzing these queries allows you to evaluate how accurately the
+          campaign matches audience interests and which areas to strengthen
+          going forward.
+        </p>
+        <div class="section">
+          <div><span class="placeholder">{{table_keyword}}</span></div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{keyword_summary}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="search_query_summary">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Search Queries</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <p>
+          This section reflects which keyword phrases users used to reach the
+          site from search results or ads. Keywords are the foundation of the
+          campaign, as they are how potential clients find you.
+        </p>
+        <div class="section">
+          <div><span class="placeholder">{{table_search_keyword}}</span></div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{search_query_summary}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="platform_summary">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Popular Platforms</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <p>
+          Platforms where ads were most frequently shown. Platform topics may
+          differ from yours because audience targeting is used. For example, a
+          user who previously searched for a product on Avito may see an ad on a
+          weather site.
+        </p>
+        <div class="section">
+          <div><span class="placeholder">{{table_display}}</span></div>
+          <p>
+            Platform topics may differ from yours: audience targeting is used.
+          </p>
+
+          <p class="accent-box">
+            <span class="placeholder">{{platform_summary}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Results</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <div class="section">
+          <p>
+            Click metrics are at
+            <span class="placeholder">{{click_rate_percentage}}</span> of the
+            planned level.
+          </p>
+          <div class="screenshot-row">
+            <img src="link_to_screenshot1.png" alt="" />
+            <img src="link_to_screenshot2.png" alt="" />
+            <img src="link_to_screenshot3.png" alt="" />
+          </div>
+          <div>
+            <span class="placeholder">{{results_summary}}</span>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper" data-if="call_tracking_table_summary">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Calls and Inquiries (Call Tracking)</h2>
+        <div class="date">{{date_range}}</div>
+      </header>
+      <main>
+        <p>
+          Below is the statistics for calls, website inquiries, and multisite
+          leads based on call tracking service data (Unified Leads Journal).
+        </p>
+        <p>
+          The data help evaluate the quantity and quality of inquiries by
+          source, identify duplicates, non-target leads, and growth
+          opportunities.
+        </p>
+
+        <div class="section">
+          <div><span class="placeholder">{{table_calltracking}}</span></div>
+
+          <p class="accent-box">
+            <span class="placeholder">{{call_tracking_summary}}</span>
+          </p>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+
+    <div class="page_wrapper">
+      <header>
+        <img
+          src="https://static.tildacdn.one/tild3130-3933-4639-b864-663464333733/logo_site_en.svg"
+          alt=""
+        />
+
+        <h2>Glossary</h2>
+      </header>
+      <main>
+        <div class="section">
+          <div class="gloss-wrap" style="text-align: justify">
+            <div>
+              <strong>CTR (Click-Through Rate)</strong> – the percentage ratio
+              of the number of clicks on an ad unit to its number of
+              impressions. It is considered a conditional measure of an ad’s or
+              banner’s attractiveness to the audience to which it is shown.
+            </div>
+
+            <div>
+              <strong>Time Targeting</strong> – displaying ads only on specified
+              days of the week and times of day according to a schedule.
+            </div>
+
+            <div>
+              <strong>Time on Site</strong> – the time difference between the
+              first and last event in a visit (events include page views,
+              external link clicks, file downloads, goal completions, and other
+              events). It is conventionally considered the time a user spent on
+              the site.
+            </div>
+
+            <div>
+              <strong>Geographic Queries (Toponym Queries)</strong> – queries
+              that contain a place name (e.g., “air conditioners in Moscow”).
+            </div>
+
+            <div>
+              <strong>Geo-Targeting (Geographic Targeting)</strong> – displaying
+              ads in a specific geographic area.
+            </div>
+
+            <div>
+              <strong>Page Depth</strong> – the number of pages viewed in a
+              single visit.
+            </div>
+
+            <div>
+              <strong>Campaign (Advertising Campaign)</strong> – an advertising
+              activity planned for a specific period, geography, and budget
+              within which ads are displayed.
+            </div>
+
+            <div>
+              <strong>Click</strong> – a user’s action of clicking on an ad. It
+              is considered an indication of visiting the advertiser’s site or
+              viewing the advertiser’s contact information.
+            </div>
+
+            <div>
+              <strong>Keywords</strong> – words carrying significant semantic
+              meaning. They serve as triggers for showing ads when they appear
+              in a user’s search query or on a site page.
+            </div>
+
+            <div>
+              <strong>Conversions</strong> – the number of visits during which
+              users completed a target action (e.g., visited specified areas of
+              the site, viewed a certain number of pages, submitted a form, or
+              made a call).
+            </div>
+
+            <div>
+              <strong>Contextual Advertising</strong> – a type of online
+              advertising that displays ads based on users’ search queries or
+              the content/context of a web page.
+            </div>
+
+            <div>
+              <strong>Negative Keywords</strong> – words for which the ad will
+              not be shown. They help narrow the target audience and improve the
+              effectiveness of contextual advertising. Example: car -repair
+              -service will show ads for “car sale,” “car rental,” and all
+              queries containing that phrase except “car repair” and “car
+              service.”
+            </div>
+
+            <div>
+              <strong>Ad (Contextual Ad)</strong> – advertising material
+              containing promotional information and a link to the advertiser’s
+              site or virtual business card.
+            </div>
+
+            <div>
+              <strong>Bounces</strong> – a visit is considered a bounce if no
+              more than one page view was recorded during the visit; the visit
+              duration is less than the defined bounce threshold (default 15
+              seconds); and no “non-bounce” event was recorded.
+            </div>
+
+            <div>
+              <strong>Display Link</strong> – the site address shown in the ad.
+            </div>
+
+            <div>
+              <strong>Behavioral Targeting</strong> – showing ads to users who
+              have recently demonstrated certain interests or performed specific
+              online actions (e.g., browsing travel services or financial news).
+            </div>
+
+            <div>
+              <strong>Search Query</strong> – the text query entered by a user
+              in Yandex or Google search, or in the search form of a site within
+              the Yandex or Google Advertising Network.
+            </div>
+
+            <div>
+              <strong>Impression</strong> – the display of an ad to a user.
+            </div>
+
+            <div>
+              <strong>Advertising Site</strong> – a website or mobile app that
+              hosts advertisements.
+            </div>
+
+            <div>
+              <strong>Ad Networks</strong> – systems for placing ads on
+              websites, mobile apps, and Smart TV apps. These platforms display
+              ad units from Yandex or Google.
+            </div>
+
+            <div>
+              <strong>Relevance</strong> – the degree to which ad content
+              matches the user’s query.
+            </div>
+
+            <div>
+              <strong>Remarketing (Retargeting)</strong> – a mechanism for
+              reaching users who previously visited your site, viewed certain
+              sections, or performed specific actions, such as adding a product
+              to the cart without completing the purchase.
+            </div>
+
+            <div>
+              <strong>Site</strong> – a collection of pages connected by meaning
+              and navigation, serving as a tool for promoting a product,
+              service, or company image online.
+            </div>
+
+            <div>
+              <strong>URL (Link)</strong> – the address of a site or page on the
+              internet. For example, the link in an ad leading to the
+              advertiser’s site or a page containing the advertiser’s contact
+              information.
+            </div>
+
+            <div>
+              <strong>Socio-Demographic Targeting</strong> – showing ads to user
+              groups with certain demographic characteristics, such as gender,
+              age, or social status (e.g., unmarried women aged 20–35 without
+              children).
+            </div>
+
+            <div>
+              <strong>Targeting</strong> – a mechanism for selecting a subset of
+              the audience that meets specified criteria (the target audience)
+              and showing ads specifically to them (e.g., time targeting,
+              geo-targeting, contextual advertising, behavioral targeting).
+            </div>
+
+            <div>
+              <strong>Thematic Targeting</strong> – displaying ads on websites
+              that match a specific theme.
+            </div>
+
+            <div>
+              <strong>Target Audience</strong> – users who meet certain criteria
+              and represent the highest value to the advertiser.
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="footer"></footer>
+
+      <script src="data.js" defer></script>
+      <script src="index.js" defer></script>
+    </div>
+  </body>
+</html>
